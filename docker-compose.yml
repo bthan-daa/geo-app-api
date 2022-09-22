@@ -3,13 +3,15 @@ version: "3.9"
 services:
   db:
     container_name: "postgres"
-    image: postgres:13-alpine
+    image: postgis/postgis:14-3.3-alpine	
     volumes:
       - dev-db-data:/var/lib/postgresql/data
+      - postgis-data:/var/lib/postgresql
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
+      - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting
   app:
     container_name: "djangoapp"
     build:
@@ -45,3 +47,5 @@ services:
       - "5050:80"
 volumes:
   dev-db-data:
+  postgis-data:
+

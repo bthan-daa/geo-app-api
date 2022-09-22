@@ -1,4 +1,4 @@
-FROM python:3.9-alpine3.13
+FROM python:3.9-alpine3.16
 
 #ENV HTTP_PROXY="http://204.40.130.129:3128/"
 #ENV HTTPS_PROXY="http://204.40.130.129:3128/"
@@ -22,7 +22,7 @@ RUN python -m venv /py && \
         then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
     rm -rf /tmp && \
-    #apk del .tmp-build-deps && \
+    apk del .tmp-build-deps && \
     adduser \
         --disabled-password \
         --no-create-home \
