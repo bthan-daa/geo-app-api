@@ -1,11 +1,21 @@
 version: "3.9"
 
 services:
+  db:
+    container_name: "postgres"
+    image: postgres:13-alpine
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
   app:
+    container_name: "djangoapp"
     build:
       context: .
-      #args:
-      #  - DEV=true
+      args:
+        - DEV=true
     ports:
       - "8000:8000"
     volumes:
@@ -17,22 +27,21 @@ services:
      #sh -c "python manage.py wait_for_db &&
      #        python manage.py migrate &&
      #        python manage.py runserver 0.0.0.0:8000"
-    #environment:
-    #  - DB_HOST=db
-    #  - DB_NAME=postgres
-    #  - DB_USER=admin 
-    #  - DB_PASS=admin
-    #depends_on:
-    #  - db
-
-  #db:
-  #  image: postgres:13-alpine
-  #  volumes:
-  #    - dev-db-data:/var/lib/postgresql/data
-  #  environment:
-  #    - POSTGRES_DB=postgres
-  #    - POSTGRES_USER=admin
-  #    - POSTGRES_PASSWORD=admin
-
-#volumes:
-  #dev-db-data:
+    environment:
+      - DB_HOST=db
+      - DB_NAME=postgres
+      - DB_USER=admin 
+      - DB_PASS=admin
+    depends_on:
+      - db
+  pgadmin:
+    container_name: "pgadmin"
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+volumes:
+  dev-db-data:
