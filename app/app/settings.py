@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'core',
+    'leaflet',
+    'markers',
+    'reporter',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +134,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuration for leaflet
+LEAFLET_CONFIG = {
+"DEFAULT_CENTER" : (40.5, -0.09),
+"DEFAULT_ZOOM" : 1,
+"MAX_ZOOM" : 20,
+"MIN_ZOOM" : 3,
+"SCALE" : 'both',
+"ATTRIBUTION_PREFIX" : "Custom leaflet",
+
+}
