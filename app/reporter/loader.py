@@ -1,3 +1,6 @@
+"""
+Load in shapefile to db
+"""
 import os
 from django.contrib.gis.utils import LayerMapping
 from .models import Parks
@@ -15,10 +18,17 @@ parks_mapping = {
     'geom': 'MULTIPOLYGON',
 }
 
-parks_shp = os.path.abspath(os.path.join(os.path.dirname(__file__), 'data', 'park.shx'),)
+parks_shp = os.path.abspath(os.path.join(
+    os.path.dirname(__file__),
+    'data',
+    'park.shx'),)
+
 
 def run(verbose=True):
-    lm = LayerMapping(Parks, parks_shp, parks_mapping, transform=False,
-    encoding = 'iso-8859-1')
+    lm = LayerMapping(
+        Parks, parks_shp,
+        parks_mapping,
+        transform=False,
+        encoding='iso-8859-1')
 
-    lm.save(strict=True,verbose=verbose)
+    lm.save(strict=True, verbose=verbose)

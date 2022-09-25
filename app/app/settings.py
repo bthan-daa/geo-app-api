@@ -14,8 +14,8 @@ from pathlib import Path
 from glob import glob
 import os
 
-GDAL_LIBRARY_PATH=glob('/usr/lib/libgdal.so.*')[0]
-GEOS_LIBRARY_PATH=glob('/usr/lib/libgeos_c.so.*')[0]
+GDAL_LIBRARY_PATH = glob('/usr/lib/libgdal.so.*')[0]
+GEOS_LIBRARY_PATH = glob('/usr/lib/libgeos_c.so.*')[0]
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,10 +86,10 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'HOST' : os.environ.get('DB_HOST'),
-        'NAME' : os.environ.get('DB_NAME'),
-        'USER' : os.environ.get('DB_USER'),
-        'PASSWORD' : os.environ.get('DB_PASS'),
+        'HOST': os.environ.get('DB_HOST'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
     }
 }
 
@@ -99,16 +99,20 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -137,11 +141,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configuration for leaflet
 LEAFLET_CONFIG = {
-"DEFAULT_CENTER" : (40.5, -0.09),
-"DEFAULT_ZOOM" : 1,
-"MAX_ZOOM" : 20,
-"MIN_ZOOM" : 3,
-"SCALE" : 'both',
-"ATTRIBUTION_PREFIX" : "Custom leaflet",
-
+    "DEFAULT_CENTER": (40.5, -0.09),
+    "DEFAULT_ZOOM": 1,
+    "MAX_ZOOM": 20,
+    "MIN_ZOOM": 3,
+    "SCALE": 'both',
+    "ATTRIBUTION_PREFIX": "Custom leaflet",
 }
