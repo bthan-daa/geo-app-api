@@ -19,16 +19,13 @@ The above commands will build, migrate, and run the application. Should you want
 
 When you would like to start the application (assuming it is already built), you can run the following from the project directory:
 
-```./run.sh
-```
+```./run.sh```
 
 Running python scripts within the container is handled through a shell script.
 
-```./cmd.sh 'YOUR ARGUMENT HERE'
-```
+```./cmd.sh 'YOUR ARGUMENT HERE'```
 Examples:
 
-```./cmd.sh 'python manage.py migrations'
-```
+```./cmd.sh 'python manage.py migrations'```
 
 
