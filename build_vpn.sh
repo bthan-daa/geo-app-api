@@ -18,3 +18,4 @@ else
 	echo "There was an error in starting Docker environment. Please contact app developer for details and copy the above output to troubleshoot"
 fi
 
+./run.sh
