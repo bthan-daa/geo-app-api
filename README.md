@@ -5,9 +5,9 @@ This is intended for testing purposes for the Government of Ontario, LRC DAA Uni
 ## Installation
 To build the docker environment and app:
 
-Run ```./run_vpn``` from the project directory if you are operating on a VPN or from the Government of Ontario ethernet
+Run ```./build_vpn``` from the project directory if you are operating on a VPN or from the Government of Ontario ethernet
 
-Run ```./run_novpn``` from the project directory if you are operating on a home/public network without a proxy.
+Run ```./build_novpn``` from the project directory if you are operating on a home/public network without a proxy.
 
 Should you encounter any difficulties, please contact me.
 
@@ -19,5 +19,5 @@ The above commands will build, migrate, and run the application. Should you want
 
 When you would like to restart the application (assuming it is already built), you can run the following from the project directory:
 
-```docker-compose up```
+```./run```
 

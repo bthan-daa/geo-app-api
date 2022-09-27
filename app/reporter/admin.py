@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.gis.admin import OSMGeoAdmin
 from .models import Incidence, Park
 
 
@@ -9,7 +10,7 @@ class IncidenceAdmin(admin.ModelAdmin):
     filter_fields = ('title', 'date_reported')
 
 
-class ParkAdmin(admin.ModelAdmin):
+class ParkAdmin(OSMGeoAdmin):
     """Create park admin fields"""
     list_display = ('ogf_id', 'admin_zone')
     search_fields = ('ofg_id',)
